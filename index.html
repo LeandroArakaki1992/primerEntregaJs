@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="estilos.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<title>Essen</title>
+</head>
+<body>
+	<a href="" class="hero" id="home">
+		<h1 class="neon">Desafio Complementario</h1>
+		<p class="neon">Leandro Arakaki</p>
+	</a>
+
+	<nav id="menu">
+		<a href="#home" class="home"> <img src="img/klipartz.com (2).png" alt=" "height="20px"> Home </a>
+		<a href="#sarten">Sarten</a>
+		<a href="#cacerola">Cacerola</a>
+		<a href="#rectangular">Rectangular</a>
+		<a href="#flip">Flip</a>
+	</nav>
+
+	<div class="secciones">
+		<div class="seccion"  id="sarten">
+			<div class="card">
+				<h1>Sarten Aqua</h1>
+				<img src="img/sarten-fin.jpg" alt="">
+				<p>Precio 6000$</p>
+				<button id="0">Agregar al carrito</button>
+			</div>
+		</div>
+
+		<div class="seccion"  id="cacerola">
+			<div class="card">
+				<h1>Cacerola 24cm</h1>
+				<img src="img/aquacacerola24cm.jpg" alt="">
+				<p>Precio 7500$</p>
+				<button id="1">Agregar al carrito</button>
+			</div>
+		</div>
+
+		<div class="seccion" id="rectangular">
+			<div class="card" >
+				<h1>Rectangular Aqua</h1>
+				<img src="img/RectangularAqua.jpg" alt="">
+				<p id="suma">Precio 10000$</p>
+				<button id="2">Agregar al carrito</button>
+			</div>
+		</div>
+
+		<div class="seccion"  id="flip">
+			<div class="card">
+				<h1>Aqua Flip</h1>
+				<img src="img/aquaflip.jpg" alt="">
+				<p id="suma">Precio 5000$</p>
+				<button id="3">Agregar al carrito</button>
+			</div>
+		</div>
+		<div class="seccion">
+			<div class="card">
+				<h1>Total</h1>
+				<div id="respuesta">
+
+				</div>
+				
+			</div>
+		</div>
+	</div>
+<script src="js/index.js"></script>
+
+</body>
+</html>

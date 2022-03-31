@@ -29,7 +29,6 @@ class Producto{
 }
 
 
-
 /*const cacerola= new Producto("Cacerola 24cm","$7500",30 - compraCacerola);
 const rectangular= new Producto("Rectangular Aqua","$10000",35 - compraRectangular);
 const flip= new Producto("Aqua Flip","$5000",25 - compraFlip);

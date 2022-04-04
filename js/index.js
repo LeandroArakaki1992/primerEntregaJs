@@ -1,133 +1,190 @@
 
-/*let compraSarten = parseInt(prompt("cuantas Sarten deseas comprar: "));
-let compraCacerola = parseInt(prompt("cuantas Cacerolas deseas comprar: "));
-let compraRectangular = parseInt(prompt("cuantas Rectangular deseas comprar: "));
-let compraFlip = parseInt(prompt("cuantos flip deseas comprar: "));
-*/
-class Producto{
-    constructor(productoEssen){
-        this.id = productoEssen.id;
-        this.nombre = productoEssen.nombre;
-        this.precio = productoEssen.precio;
-        this.stock = productoEssen.stock;
-        this.cantidad = 1;
-        this.precioTotal = productoEssen.precio;
-    }
-
-    agregarUnidad(){
-        this.cantidad++;
-    }
-
-    quitarUnidad(){
-        this.cantidad--;
-    }
-
-    actualizarPrecioTotal(){
-        this.precioTotal = this.precio * this.cantidad;
-    }
-    
-}
+let btn1 = document.getElementById('btn-1');
+let btn2 = document.getElementById('btn-2');
+let btn3 = document.getElementById('btn-3');
+let btn4 = document.getElementById('btn-4');
 
 
-/*const cacerola= new Producto("Cacerola 24cm","$7500",30 - compraCacerola);
-const rectangular= new Producto("Rectangular Aqua","$10000",35 - compraRectangular);
-const flip= new Producto("Aqua Flip","$5000",25 - compraFlip);
-
-console.log(sarten);
-console.log(cacerola);
-console.log(rectangular);
-console.log(flip);
-*/
-
-
-const productoEssen = [
-    {
-        id: 0,
-        nombre: "Sarten Aqua 🍳",
-        precio: 6000,
-        stock: 50,
-    },
-    {
-        id: 1,
-        nombre: "Cacerola 24cm 🥘",
-        precio: 7500,
-        stock: 30,
-    },
-    {
-        id: 2,
-        nombre: "Rectangular Aqua 🍲",
-        precio: 10000,
-        stock: 35,
-    },
-    {
-        id: 3,
-        nombre: "Aqua Flip 🥞",
-        precio: 5000,
-        stock: 25,
-    },    
-];
-
-
+let listadoCarrito = document.getElementById('carrito');
+let total = document.getElementById('total');
 
 let carrito = [];
-let precioTotal;
+let contador = 0;
 
-function menuDeCompras(){
-    let stringProductos = "";
+btn1.onclick = function(){
+    let precio = document.getElementById('precio-1').innerText;
+    let posicion = carrito.findIndex(element => element.producto === 'Sarten-Aqua')
 
-    for (let i = 0; i < productoEssen.length; i++) {
-        stringProductos += `${productoEssen[i].id}: ${productoEssen[i].nombre}. Precio: $${productoEssen[i].precio}. Stock: ${productoEssen[i].stock} unidades \n`;
-    }
-
-
-let idProducto = prompt(`
-Escriba el numero del producto a comprar, o escriba 'ESC' para finalizar 😊
-${stringProductos} \n`);
-
-while (idProducto !== "ESC"){
-    let essenEnCarrito = carrito.find((elemento) => elemento.id == idProducto);
-
-    if (essenEnCarrito) {
+    if(posicion != -1){
+        carrito[posicion].cantidad = carrito[posicion].cantidad + 1;
+    }else{
         
-        let index = carrito.findIndex((elemento) => elemento.id === essenEnCarrito.id);
+        carrito.push({id:contador++,producto:'Sarten-Aqua', precio: precio, cantidad: 1})
+    }
+    Swal.fire({
+         title: 'Se ha añadido al Carrito',
+         text: 'Sarten Aqua 🛒✔️',
+         icon: undefined,
+        width: '300px',
+        padding: 'rem',
+        background: '#fff',
+        grow: false,
+        backdrop: false,
+        timer: 4500,
+        timerProgressBar: true,
+        toast: false,
+        position: 'bottom-end',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        stopKeydownPropagation: false,
+        showConfirmButton: false,
+        showCancelButton: false,
+        showCloseButton: false,
+        closeButtonAriaLabel: 'Cerrar esta alerta',
+        imageUrl: 'img/sarten-fin.jpg',
+        imageWidth: '100%'
+    });
+    
+    renderizaElementos()
+};
 
-        carrito[index].agregarUnidad();
-        carrito[index].actualizarPrecioTotal();
-        alert(`
-        Se ha añadido otro producto Essen ${carrito[index].nombre}
-        Unidades: ${carrito[index].cantidad} 🛒✔️`);
+btn2.onclick = function(){
+    let precio = document.getElementById('precio-2').innerText;
+    let posicion = carrito.findIndex(element => element.producto === 'Cacerola')
+
+    if(posicion != -1){
+        carrito[posicion].cantidad = carrito[posicion].cantidad + 1;
+    }else{
         
-    } else {
-        carrito.push(new Producto(productoEssen[idProducto]));
-        alert(`Se ha añadido al carrito el producto ${productoEssen[idProducto].nombre}
-🛒✔️`);
+        carrito.push({id:contador++,producto:'Cacerola',precio: precio, cantidad: 1})
     }
 
-    idProducto = prompt(`
-Desea seguir comprando? 🤔
-Escriba el número del producto a comprar, o escriba 'ESC' para finalizar
-${stringProductos}`);
+    Swal.fire({
+        title: 'Se ha añadido al Carrito',
+        text: 'Cacerola 24cm 🛒✔️',
+        icon: undefined,
+       width: '300px',
+       padding: 'rem',
+       background: '#fff',
+       grow: false,
+       backdrop: false,
+       timer: 4500,
+       timerProgressBar: true,
+       toast: false,
+       position: 'bottom-end',
+       allowOutsideClick: false,
+       allowEscapeKey: false,
+       stopKeydownPropagation: false,
+       showConfirmButton: false,
+       showCancelButton: false,
+       showCloseButton: false,
+       closeButtonAriaLabel: 'Cerrar esta alerta',
+       imageUrl: 'img/aquacacerola24cm.jpg',
+       imageWidth: '100%'
+   });
 
+    renderizaElementos()
+};
 
+btn3.onclick = function(){
+    
+    let precio = document.getElementById('precio-3').innerText;
+    let posicion = carrito.findIndex(element => element.producto === 'Rectangular')
+
+    if(posicion != -1){
+    
+        carrito[posicion].cantidad = carrito[posicion].cantidad + 1;
+    }else{
+        
+        carrito.push({id:contador++,producto:'Rectangular',precio: precio, cantidad: 1})
     }
 
+    Swal.fire({
+        title: 'Se ha añadido al Carrito',
+        text: 'Rectangular Aqua 🛒✔️',
+        icon: undefined,
+       width: '300px',
+       padding: 'rem',
+       background: '#fff',
+       grow: false,
+       backdrop: false,
+       timer: 4500,
+       timerProgressBar: true,
+       toast: false,
+       position: 'bottom-end',
+       allowOutsideClick: false,
+       allowEscapeKey: false,
+       stopKeydownPropagation: false,
+       showConfirmButton: false,
+       showCancelButton: false,
+       showCloseButton: false,
+       closeButtonAriaLabel: 'Cerrar esta alerta',
+       imageUrl: 'img/RectangularAqua.jpg',
+       imageWidth: '100%'
+   });
+
+    renderizaElementos()
+};
+
+btn4.onclick = function(){
+    let precio = document.getElementById('precio-4').innerText;
+    let posicion = carrito.findIndex(element => element.producto === 'Aqua-Flip')
+
+    if(posicion != -1){
+        carrito[posicion].cantidad = carrito[posicion].cantidad + 1;
+    }else{
+        
+        carrito.push({id:contador++,producto:'Aqua-Flip',precio: precio, cantidad: 1})
+    }
+
+    Swal.fire({
+        title: 'Se ha añadido al Carrito',
+        text: 'Aqua Flip 🛒✔️',
+        icon: undefined,
+       width: '300px',
+       padding: 'rem',
+       background: '#fff',
+       grow: false,
+       backdrop: false,
+       timer: 4500,
+       timerProgressBar: true,
+       toast: false,
+       position: 'bottom-end',
+       allowOutsideClick: false,
+       allowEscapeKey: false,
+       stopKeydownPropagation: false,
+       showConfirmButton: false,
+       showCancelButton: false,
+       showCloseButton: false,
+       closeButtonAriaLabel: 'Cerrar esta alerta',
+       imageUrl: 'img/aquaflip.jpg',
+       imageWidth: '100%'
+   });
+
+    renderizaElementos()
+};
+
+
+const renderizaElementos = ()=>{
+    listadoCarrito.innerHTML = ''
+    let sumaTotal = 0;
+    if(carrito.length>0){
+        for (let index = 0; index < carrito.length; index++) {
+            let elemento = document.createElement('div');
+            elemento.innerHTML = `  <p>
+                                    Producto: ${carrito[index].producto},
+                                    Cantidad: ${carrito[index].cantidad}</p>`;
+            sumaTotal = sumaTotal + (parseInt(carrito[index].precio) * parseInt(carrito[index].cantidad));
+            listadoCarrito.append(elemento);
+            total.innerText = `Total: $${sumaTotal}`;
+
+            let btn5 = document.getElementById('btn-5');
+                btn5.addEventListener('click', function(){Swal.fire({
+                title: 'El precio total de tu compra es de: ' + '💲' + sumaTotal,
+                text: 'GRACIAS!! 💙',
+                icon: 'success'
+            })})
+        }
+    }
 }
 
-function obtenerPrecioTotal() {
-    let precioTotal = 0;
-    for (const producto of carrito) {
-        precioTotal += producto.precioTotal;
-    }
-
-    return precioTotal;
-}
-
-menuDeCompras();
-precioTotal = obtenerPrecioTotal();
-
-Swal.fire({
-    title: 'El precio total de tu compra es de: ' + '💲' + precioTotal,
-    text: 'GRACIAS!! 💙',
-    icon: 'success'
-})
-console.table(carrito);

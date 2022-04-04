@@ -98,7 +98,7 @@ nav a:hover {
 .seccion .card {
 	background: #fff;
 	height: 90%;
-	width: 70%;
+	width: 125%;
 	padding: 40px;
 	border-radius: 5px;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -121,6 +121,7 @@ nav a:hover {
 	vertical-align: top;
 	margin-bottom: 20px;
 }
+
 
 
 

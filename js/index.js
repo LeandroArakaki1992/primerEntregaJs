@@ -171,9 +171,9 @@ const renderizaElementos = ()=>{
     if(carrito.length>0){
         for (let index = 0; index < carrito.length; index++) {
             let elemento = document.createElement('div');
-            elemento.innerHTML = `  <p>
+            elemento.innerHTML = ` <p>
                                     Producto: ${carrito[index].producto},
-                                    Cantidad: ${carrito[index].cantidad}</p>`;
+                                    Cantidad: ${carrito[index].cantidad}<p>`;
             sumaTotal = sumaTotal + (parseInt(carrito[index].precio) * parseInt(carrito[index].cantidad));
             listadoCarrito.append(elemento);
             total.innerText = `Total: $${sumaTotal}`;

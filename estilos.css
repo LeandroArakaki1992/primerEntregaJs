@@ -123,6 +123,20 @@ nav a:hover {
 }
 
 
+.seccion .carrito{
+	background-image: url(img/carrito-de-compras-virtual.png);
+	background-size: 40%;
+	background-repeat: no-repeat;
+	background-position: right;
+	font-size: xx-large;
+	
+}
+
+h3{
+	margin: 20px;
+}
+
+
 
 
 @media screen and (max-width: 800px) {
